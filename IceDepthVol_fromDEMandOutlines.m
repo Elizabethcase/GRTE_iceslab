@@ -1,18 +1,13 @@
 clear; close all
 
-% set file path
-fdata = '/Users/elizabeth/Documents/2021/tetons/glaciers/data/';
-
-
 %% load outlines
 
 load('GRTE_glacier_outlines.mat')
 
 %% load DEMs
 
-LidarDEM = GRIDobj([fdata 'LIDAR_DEM_Mountains.tif']);
+LidarDEM = GRIDobj('LIDAR_DEM_Mountains.tif');
 LidarDEM.name = '2014LidarMountainsDEM';
-%Map1945 = GRIDobj([fdata '1945Teton.tif']);
 
 %% reduce DEM resolution to make it more manageable to work with
 res = 20;
@@ -48,6 +43,7 @@ camroll(-90)
 
 slp = arcslope(LidarDEM,'radian');
 asp = aspect(LidarDEM);
+
 figure()
 subplot(121)
 imageschs(LidarDEM,slp)
@@ -180,7 +176,7 @@ end
 
 
 %% save data
-save([fdata 'GRTE_glacier_outlines_extended'],'GRTE_glacier_outlines')
+save(['GRTE_glacier_outlines_extended'],'GRTE_glacier_outlines')
 
 %% misc plots
 

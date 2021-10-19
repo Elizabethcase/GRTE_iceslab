@@ -1,7 +1,7 @@
 clear; close all
 
-% set file path
-fdata = '/Users/elizabeth/Documents/2021/tetons/glaciers/data/';
+%% set file path
+fdata = '../data/';
 
 %% load outlines
 
